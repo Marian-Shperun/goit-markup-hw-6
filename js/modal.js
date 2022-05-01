@@ -13,17 +13,22 @@
   }
 })();
 
-
 // form
 (() => {
-  document
-    .querySelector(".js-speaker-form")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      new FormData(e.currentTarget).forEach((value, name) =>
-        console.log(`${name}: ${value}`),
-      );
-      e.currentTarget.reset();
+  document.querySelector(".js-speaker-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    new FormData(e.currentTarget).forEach((value, name) =>
+      console.log(`${name}: ${value}`)
+    );
+    e.currentTarget.reset();
   });
 })();
+
+// form footer placeholder
+document.querySelector(".footer-input").addEventListener("focusin", (e) => {
+  e.currentTarget.placeholder = e.currentTarget.dataset.placeholder;
+});
+document.querySelector(".footer-input").addEventListener("focusout", (e) => {
+  e.currentTarget.placeholder = " ";
+});
